@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minimal Music Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <div class="player">
+      <div class="art">
+        <div class="vinyl"></div>
+        <div class="pulse"></div>
+      </div>
+      <div class="meta">
+        <div class="title" id="title">Loading…</div>
+        <div class="artist" id="artist"></div>
+      </div>
+      <div class="controls">
+        <button id="shuffle" aria-label="Shuffle" class="ghost">🔀</button>
+        <button id="prev" aria-label="Previous">⏮️</button>
+        <button id="play" aria-label="Play/Pause" class="primary">▶️</button>
+        <button id="next" aria-label="Next">⏭️</button>
+        <button id="mute" aria-label="Mute/Unmute" class="ghost">🔈</button>
+      </div>
+      <div class="progress">
+        <span id="current">0:00</span>
+        <input type="range" id="seek" min="0" max="100" value="0" step="0.1">
+        <span id="duration">0:00</span>
+      </div>
+      <div class="volume">
+        <span>🔊</span>
+        <input type="range" id="volume" min="0" max="100" value="70">
+      </div>
+      <details class="list">
+        <summary>Playlist</summary>
+        <ul id="playlist"></ul>
+      </details>
+    </div>
+  </main>
+
+  <div id="yt-holder" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+  <script>
+    const s=document.createElement('script'); s.src="https://www.youtube.com/iframe_api"; document.body.appendChild(s);
+  </script>
+</body>
+</html>
